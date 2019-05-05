@@ -18,4 +18,4 @@ RUN set -xe \
 	&& make install \
 	&& find /usr/local -name examples | xargs rm -rf \
 	&& rm -rf /usr/src/otp-src
-WORKDIR /home/codes
+WORKDIR /home/app
