@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-enable redis \
     && pecl install xdebug-2.5.5 \
     && docker-php-ext-enable xdebug \
-    && pecl install memcache-3.0.8 \
+    && pecl install memcache-2.2.7 \
     && docker-php-ext-enable memcache
