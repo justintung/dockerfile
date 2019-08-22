@@ -8,6 +8,7 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 RUN apt-get update && apt-get install --assume-yes apt-utils
 RUN apt-get install net-tools
 RUN apt-get install telnet
+RUN apt-get install -y vim
 RUN set -xe \
 	&& OTP_DOWNLOAD_URL=http://www.erlang.org/download/otp_src_$OTP_VERSION.tar.gz \
 	&& OTP_DOWNLOAD_MD5=eccd1e6dda6132993555e088005019f2 \
