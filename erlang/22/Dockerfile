@@ -67,5 +67,5 @@ ENV LANG C.UTF-8
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
 RUN apt-get update && apt-get install --assume-yes apt-utils
-RUN apt-get install net-tools telnet vim
+RUN apt-get install net-tools telnet
 WORKDIR /home/app	
