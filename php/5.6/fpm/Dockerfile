@@ -14,4 +14,4 @@ RUN pecl install redis-2.2.8 \
 RUN pecl install memcached-2.2.0 \
 	&& pecl install memcache-2.2.7 \
     && docker-php-ext-enable memcached memcache
-
+RUN docker-php-ext-install bcmath
