@@ -1,5 +1,10 @@
 FROM php:7.4-fpm
 RUN usermod -u 1000 www-data
+
+RUN rm -f /etc/localtime \
+&& ln -sv /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+&& echo "Asia/Shanghai" > /etc/timezone
+
 RUN apt-get update
 RUN pecl install redis \
     && pecl install xdebug \
