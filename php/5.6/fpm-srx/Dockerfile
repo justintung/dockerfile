@@ -26,3 +26,12 @@ RUN pecl install mongo-1.6.16 \
     && docker-php-ext-enable mongo mongodb
 RUN pecl install imagick \
 	&& docker-php-ext-enable imagick
+COPY php-srx.tar.gz /usr/src/
+RUN tar -zxvf /usr/src/php-srx.tar.gz -C /usr/src/ \
+	&& cd /usr/src/php-srx \
+	&& phpize \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& docker-php-ext-enable srx \
+	&& rm -rf /usr/src/php-srx*
