@@ -24,3 +24,5 @@ RUN pecl install imagick \
 	&& docker-php-ext-enable imagick
 RUN a2enmod rewrite
 RUN a2enmod headers
+RUN a2enmod ssl
+RUN a2enmod socache_shmcb
