@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.1-fpm
 RUN usermod -u 1000 www-data
 
 RUN rm -f /etc/localtime \
@@ -10,17 +10,15 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng-dev \
-        libgmp-dev \
         libmemcached-dev zlib1g-dev \
         libssl-dev \
         libmagickwand-dev libmagickcore-dev \
         libzip-dev zip \
         && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
         && docker-php-ext-install -j$(nproc) gd
-RUN pecl install redis \
-    && pecl install xdebug \
+RUN pecl install redis-3.1.6 \
     && pecl install imagick \
     && pecl install mongodb
-RUN docker-php-ext-install pdo pdo_mysql mysqli zip bcmath pcntl gmp
-RUN docker-php-ext-enable redis xdebug mongodb imagick
+RUN docker-php-ext-install pdo pdo_mysql mysqli zip bcmath pcntl
+RUN docker-php-ext-enable redis mongodb imagick
 
